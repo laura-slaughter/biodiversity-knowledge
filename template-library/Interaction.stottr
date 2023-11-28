@@ -1,1 +1,38 @@
+@prefix rdf: 	<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: 	<http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: 	<http://www.w3.org/2002/07/owl#>.
+@prefix xsd: 	<http://www.w3.org/2001/XMLSchema#>.
+@prefix adb-o: 	<http://atb.no/>.
+@prefix ottr: 	<http://ns.ottr.xyz/0.4/>.
+@prefix ax: 	<http://tpl.ottr.xyz/owl/axiom/0.1/>.
 
+#interactions are relationships
+#usual form: species1 interacts_with species2
+# but there can also be interactions that only occur with specific forms of a species (e.g. adult)
+#This could be a case for nested templates. The first is a definition of the relationship and the second
+#is using it to link species.
+# a two-step process? first specify the relationship itself,
+# and second, add triples with the interaction information
+
+Template:Interaction("ekte predasjon", adb-o:preys_on, "has_predator", "lifestage") .
+Template:SpeciesInteraction("cat", adb-o:preys_on, "mouse") .
+
+
+Template:Interaction[xsd:string ?label, owl:Property ?property, xsd:string ?inverse, xsd:string ?domainrange] :: {
+     ottr:Triple(:_id, rdfs:label, ?label),
+     ottr:Triple(:_id, owl:Property, ?property),
+     ottr:Triple(:_id, rdfs:label, ?inverse),
+     ottr:Triple(:_id, rdfs:label, ?domainrange)
+} .
+
+
+Template:SpeciesInteraction[?speciesA, ?speciesB, ?relationship, ?conditionalValue] :: {
+} .
+
+adb-t:PreysOn[ ottr:IRI ?prey, ottr:IRI ?predator ] :: {
+  ottr:triple(?predator, adb-o:preys_on, ?prey),
+  ottr:triple(?prey, adb-o:has_predator, ?predator)
+} .
+
+adb-o:myprop a owl:ObjectProperty .
+http://tpl.ottr.xyz/owl/declaration/0.1/ObjectProperty
