@@ -1,1 +1,3 @@
-
+This is an info page about the Oslofjord Klimabarometer project.
+The domain knowledge that is generated uses OTTR templates.
+A pipeline is created to populate a set of OTTR templates that will provide trophic interactions for the digital twin built using SMOL.
