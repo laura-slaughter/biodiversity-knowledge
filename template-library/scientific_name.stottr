@@ -1,0 +1,13 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://example.com/ns#> .
+@prefix ottr: <http://ns.ottr.xyz/0.4/> .
+@prefix ax: <http://tpl.ottr.xyz/owl/axiom/0.1/> .
+
+# ex:TraitTemplate (ex:WingSpan, "wing span is the length in mm of some butterfly"^^xsd:string)  .
+ex:TraitTemplate [owl:Class ?name, ? xsd:string ?definition] :: {
+     ax:SubClassOf (?name, ex:Trait),
+     ottr:Triple(?name, rdfs:label, ?definition)
+} .
