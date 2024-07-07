@@ -1,1 +1,23 @@
+@prefix rdf: 	<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: 	<http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: 	<http://www.w3.org/2002/07/owl#>.
+@prefix xsd: 	<http://www.w3.org/2001/XMLSchema#>.
+@prefix mfw-o: 	<http://mfw.no/>.
+@prefix ottr: 	<http://ns.ottr.xyz/0.4/>.
+@prefix ax: 	<http://tpl.ottr.xyz/owl/axiom/0.1/>.
 
+Template:trophicallyInteractsWith(Organism, mfw-o:trophicallyInteractsWith, FoodResource) .
+Template:trophicallyInteractsWith("Larus argentatus", mfw-o:trophicallyInteractsWith, "Fish") .
+
+/***
+Try papers like this one and the references cited: https://setac.onlinelibrary.wiley.com/doi/full/10.1002/etc.5441
+They are surface feeders and their diet includes fish, crustaceans, and a wide variety of marine invertebrates, 
+and in addition terrestrial items like carcasses, earthworms, insects, eggs, and plants 
+(Ewins et al., 1994; Hebert et al., 2009; Sotillo et al., 2019). However, the herring gull is a highly 
+opportunistic feeder, and with proximity to human settlements it will scavenge food from urban areas, 
+such as waste dumps (Coulson, 2015; Hebert et al., 2009; Tongue et al., 2021).
+***/
+
+mfw-t:trophicallyInteractsWith[ ottr:IRI ?organism, ottr:IRI ?foodResource ] :: {
+  ottr:triple(?organism, mfw-o:trophicallyInteractsWith, ?foodresource),
+} .
