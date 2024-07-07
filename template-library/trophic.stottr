@@ -19,6 +19,6 @@ opportunistic feeder, and with proximity to human settlements it will scavenge f
 such as waste dumps (Coulson, 2015; Hebert et al., 2009; Tongue et al., 2021).
 ***/
 
-trophicallyInteractsWith[ ottr:IRI ?organism, ottr:IRI ?foodResource ] :: {
+mfw-t:trophicallyInteractsWith[ ottr:IRI ?organism, ottr:IRI ?foodResource ] :: {
   ottr:Triple(?organism, mfw-o:trophicallyInteractsWith, ?foodResource),
 } .
