@@ -6,8 +6,9 @@
 @prefix ottr: 	<http://ns.ottr.xyz/0.4/>.
 @prefix ax: 	<http://tpl.ottr.xyz/owl/axiom/0.1/>.
 
-Template:trophicallyInteractsWith(Organism, mfw-o:trophicallyInteractsWith, FoodResource) .
-Template:trophicallyInteractsWith("Larus argentatus", mfw-o:trophicallyInteractsWith, "Fish") .
+#Template:trophicallyInteractsWith(Organism, mfw-o:trophicallyInteractsWith, FoodResource) .
+
+trophicallyInteractsWith("Larus argentatus", mfw-o:trophicallyInteractsWith, "Fish") .
 
 /***
 Try papers like this one and the references cited: https://setac.onlinelibrary.wiley.com/doi/full/10.1002/etc.5441
@@ -18,6 +19,6 @@ opportunistic feeder, and with proximity to human settlements it will scavenge f
 such as waste dumps (Coulson, 2015; Hebert et al., 2009; Tongue et al., 2021).
 ***/
 
-mfw-t:trophicallyInteractsWith[ ottr:IRI ?organism, ottr:IRI ?foodResource ] :: {
-  ottr:triple(?organism, mfw-o:trophicallyInteractsWith, ?foodresource),
+trophicallyInteractsWith[ ottr:IRI ?organism, ottr:IRI ?foodResource ] :: {
+  ottr:Triple(?organism, mfw-o:trophicallyInteractsWith, ?foodResource),
 } .
